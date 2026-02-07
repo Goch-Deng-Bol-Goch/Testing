@@ -37,3 +37,18 @@ function showGreeting(message) {
   setTimeout(() => { greetingDiv.remove(); }, 3600);
 }
 
+ function filterProducts() {
+    const input = document.getElementById("searchInput");
+    const filter = input.value.toLowerCase();
+    const products = document.querySelectorAll("#productList .product-card");
+
+    products.forEach(product => {
+      const productName = product.querySelector("h3").textContent.toLowerCase();
+
+      if (productName.includes(filter)) {
+        product.style.display = "block";
+      } else {
+        product.style.display = "none";
+      }
+    });
+  }
